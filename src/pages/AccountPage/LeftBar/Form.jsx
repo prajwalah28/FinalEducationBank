@@ -186,7 +186,7 @@ const Form = () => {
               accept="image/*"
               onChange={handleImageChange}
               className="px-3 h-10 border-2 border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-black"
-              required
+              // required
             />
           </div>
         </div>

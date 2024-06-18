@@ -10,6 +10,7 @@ const ContextProvider = ({ children }) => {
   const [courseSetion, setcourseSection] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [datahide, setdatahide] = useState("true");
+  const[allcoursetotal,setallcoursetotal] = useState([])
   // getting All courses from api using GetAPIData
   const Courses = GetAPIData("/courses");
   const UserAccountData = GetAPIData(`/user/${userDetails.id}`);
@@ -29,6 +30,8 @@ const ContextProvider = ({ children }) => {
     setcourseSection,
     datahide,
     setdatahide,
+    allcoursetotal,
+    setallcoursetotal
   };
 
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;

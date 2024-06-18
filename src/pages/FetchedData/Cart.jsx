@@ -7,7 +7,8 @@ import { UserContext } from "../../Context/LoginContext";
 import useDeleteFromCart from "../../Backend";
 
 const Cart = () => {
-  const { userDetails, setUserDetails } = useContext(UserContext);
+  const { userDetails,setallcoursetotal } = useContext(UserContext);
+  
 
   const totalPrice = userDetails.cart.reduce(
     (acc, item) => acc + item.courses.cost,
@@ -84,7 +85,9 @@ const Cart = () => {
           <div className="flex justify-between items-center mt-4 px-10">
             <h1 className="text-xl font-semibold">Total: ₹ {totalPrice}</h1>
             <Link to={"/Payment"}>
-              <button className="bg-orange-500 py-2 px-6 text-white font-semibold rounded">
+              <button onClick={() => {
+                    setallcoursetotal(totalPrice);
+                  }} className="bg-orange-500 py-2 px-6 text-white font-semibold rounded">
                 Checkout
               </button>
             </Link>

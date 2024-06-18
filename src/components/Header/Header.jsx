@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/LoginContext";
 import { Icons } from "../../assets/assets";
@@ -27,6 +27,9 @@ const Header = () => {
     setProfile(false);
     setdatahide(true);
   };
+  useEffect(() => {
+    setAllCourse(allFetched);
+  }, [allFetched]);
 
   return (
     <div className="mb-28 z-10">
@@ -60,7 +63,7 @@ const Header = () => {
             <div className="relative mr-3">
               <Icons.FiShoppingCart className="text-3xl" />
               <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white px-2 rounded-full border-1 border-black">
-                {/* {isLoggedIn ? userDetails.cart.length : 0} */}
+                {isLoggedIn ? userDetails.cart.length : 0}
               </span>
             </div>
           </Link>
@@ -99,13 +102,15 @@ const Header = () => {
                       className="h-12 w-12 rounded-full border-2 border-gray-400"
                     />
                   ) : (
-                    <h1 className="bg-blue-950 rounded-full text-white font-semibold cursor-pointer h-5 w-5 ">
+                   <div className="h-12 w-12 bg-blue-950 rounded-full text-white font-semibold cursor-pointer px-3 py-3 ">
+                   <h1 className=" flex align-items-center text-align">
                       {userDetails.name &&
                         userDetails.name
                           .split(" ")
                           .map((name) => name[0].toUpperCase())
                           .join("")}
                     </h1>
+                   </div>
                   )}
                 </div>
               </div>

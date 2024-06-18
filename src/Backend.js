@@ -11,7 +11,7 @@ const useDeleteFromCart = () => {
     if (confirm("Want to delete course from cart?")) {
       try {
         const response = await fetch(
-          `http://192.168.1.9:8080/api/cart/${courseId}`,
+          `${baseUrl}/cart/${courseId}`,
           {
             method: "DELETE",
             headers: {

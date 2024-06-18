@@ -1,4 +1,4 @@
-const baseUrl = `http://192.168.1.9:8080/api`;
+const baseUrl = `http://192.168.1.17:8080/api`;
 export default baseUrl;
 
 // Import the functions you need from the SDKs you need

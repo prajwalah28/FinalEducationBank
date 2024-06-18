@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/LoginContext";
+import { Link } from "react-router-dom";
 
 const RightSlide = () => {
-  const { paymentSuccess, setPaymentSuccess } = useContext(UserContext);
+  const { paymentSuccess, setPaymentSuccess ,allcoursetotal} = useContext(UserContext);
 
   const handlePaymentSuccess = () => {
     setPaymentSuccess(true);
@@ -17,12 +18,12 @@ const RightSlide = () => {
         <h1 className="px-8">Summary</h1>
         <div className="flex justify-between  px-8 ">
           <h1>Original price </h1>
-          <h1>3,009</h1>
+          <h1>₹{allcoursetotal}</h1>
         </div>
       </div>
       <div className="flex justify-between px-8 py-2">
         <h1>Total : </h1>
-        <h1>3,009</h1>
+        <h1>₹{allcoursetotal}</h1>
       </div>
 
       <div className="px-8  w-96 mx-auto mt-20 flex flex-col py-2 ">
@@ -30,9 +31,14 @@ const RightSlide = () => {
           By completing your purchase you agree to these Terms of service.{" "}
         </p>
         <div className="mx-auto">
-          <button onClick={handlePaymentSuccess} className="text-center bg-orange-500 px-14 mx-auto text-white py-2 mt-6 ">
+          {/* <button onClick={handlePaymentSuccess} className="text-center bg-orange-500 px-14 mx-auto text-white py-2 mt-6 ">
+            Complete Payment
+          </button> */}
+         <Link to="/qrcode">
+         <button  className="text-center bg-orange-500 px-14 mx-auto text-white py-2 mt-6 ">
             Complete Payment
           </button>
+         </Link>
         </div>
       </div>
     </div>

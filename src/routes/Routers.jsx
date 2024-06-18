@@ -16,6 +16,7 @@ import Cart from "../pages/FetchedData/Cart";
 import CoursePage from "../pages/FetchedData/CoursePage";
 import HomeMain from "../pages/HomeMain/HomeMain";
 import ProtectedRoute from "./ProtectedRouter";
+import PaymentGateway from "../pages/PaymentPage/Qrcode";
 
 const Routers = () => {
   return (
@@ -23,6 +24,7 @@ const Routers = () => {
       <Routes>
         <Route path="/" element={<HomeMain />} />
         <Route path="/home" exact element={<Home />} />
+        <Route path="/qrcode" exact element={<PaymentGateway/>} />
         <Route
           path="/account"
           element={<ProtectedRoute Component={AccountProfile} />}
